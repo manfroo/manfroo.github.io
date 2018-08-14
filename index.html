@@ -11,6 +11,10 @@
   <br>
   Link Iniziale:<br>
   <input type="text"  id="li" name="linkiniziale">
+  <br>
+  Episodio Iniziale:<br>
+  <input type="text" id="ei" name="episodioiniziale" value="1">
+  <br>
   <input id="clickMe" type="button" value="Scarica" onclick="scarica();" />
 </form>
 <iframe id="my_iframe" style="display:none;"></iframe>
@@ -38,8 +42,9 @@ var i,x,ne,li;
 x = document.getElementById("form1");
 ne = x.elements["numeroepisodi"].value;
 li = x.elements["linkiniziale"].value;
+ei = x.elements["episodioiniziale"].value;
 li = li.trim()
- for (i = 1; i <= ne; i++) {
+ for (i = ei; i <= ne; i++) {
 	var url =  "http://" + li + ('0' + i).slice(-2) + "_SUB_ITA.mp4";
 	window.open(url);
 
