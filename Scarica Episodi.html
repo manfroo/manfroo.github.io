@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Scarica Episodi</h2>
+
+<p id="demo"></p>
+<form id="form1" >
+  Numero Episodi:<br>
+  <input type="text" id="ne" name="numeroepisodi">
+  <br>
+  Link Iniziale:<br>
+  <input type="text"  id="li" name="linkiniziale">
+  <input id="clickMe" type="button" value="Scarica" onclick="scarica();" />
+</form>
+<iframe id="my_iframe" style="display:none;"></iframe>
+
+<script>
+function addhttp(url) {
+	return url;
+}
+function Download(url) {
+	document.getElementById('my_iframe').src = url;
+};
+function OpenInNewTabWinBrowser(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+	 end = new Date().getTime();
+  }
+}
+function scarica() {
+var i,x,ne,li;
+x = document.getElementById("form1");
+ne = x.elements["numeroepisodi"].value;
+li = x.elements["linkiniziale"].value;
+li = li.trim()
+ for (i = 1; i <= ne; i++) {
+	var url =  "http://" + li + ('0' + i).slice(-2) + "_SUB_ITA.mp4";
+	window.open(url);
+
+}
+
+}
+</script>
+
+</body>
+</html>
